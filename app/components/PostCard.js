@@ -16,13 +16,13 @@ export default function PostCard({post,index}){
     return(
         <Link href={`/blog/${post.slug}`} className='block h-full'>
 
-            <article className='group relative bg-white border border-[#E3DFD4] rounded-sm p-5 sm:p-6 transition-all duration-300 hover:border-[#2C5F4F] hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_#2C5F4F] flex flex-col h-full'>
+            <article className='group relative bg-white border border-[#E3DFD4] rounded-sm p-5 sm:p-6 transition-all duration-300 hover:border-[#2C5F4F] hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_#2C5F4F] active:scale-[0.98] active:shadow-sm flex flex-col h-full'>
 
                 {post.image &&(
                     <img 
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-40 object-cover rounded-sm mb-4"
+                    className="w-full h-52 object-cover rounded-sm mb-4 sm:h-40"
 
                     />
                     
@@ -50,7 +50,7 @@ export default function PostCard({post,index}){
                         {stripMarkdown(post.description)}
                     </p>
 
-                    <div className="mt-5 font-mono text-xs text-[#2C5F4F] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <div className="mt-auto pt-4 font-mono text-xs text-[#2C5F4F] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                         Read entry <span aria-hidden="true">→</span>
                     </div>
 
