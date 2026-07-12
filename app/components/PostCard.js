@@ -22,7 +22,7 @@ export default function PostCard({post,index}){
                     <img 
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-52 object-cover rounded-sm mb-4 sm:h-40"
+                    className="w-full h-45 object-cover rounded-sm mb-4 sm:h-40"
 
                     />
                     

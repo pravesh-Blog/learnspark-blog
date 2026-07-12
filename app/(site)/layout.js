@@ -10,9 +10,12 @@ export const metadata = {
   description: 'AI, Learning aur Career Growth ke practical guides.',
   openGraph: {
     title: 'LearnSpark',
-    description: 'AI, Learning aur Career Growth ke practical guides.',
+    description: 'Learn AI & Tech, Spark Your Career',
     type: 'website',
   },
+  verification:{
+    google:'qgiYLH0jiurDtCZbPLLZbtN-a0UnqYM801ryKtfTAdc'
+  }
 }
 
 export default function SiteLayout({children}){
