@@ -14,7 +14,7 @@ export const metadata = {
     type: 'website',
   },
   verification:{
-    google:'qgiYLH0jiurDtCZbPLLZbtN-a0UnqYM801ryKtfTAdc'
+    google:'iwqfJZjznxyNv1yBll0zo0qXAc_qy6XAX2OL1rsnd78'
   }
 }
 
