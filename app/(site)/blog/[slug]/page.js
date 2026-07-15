@@ -18,6 +18,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: post.title,
       description: post.description,
+      siteName: 'LearnSpark',
       images: post.image ? [{ url: post.image }] : [],
       type: 'article',
     },

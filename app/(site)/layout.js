@@ -11,6 +11,7 @@ export const metadata = {
   openGraph: {
     title: 'LearnSpark',
     description: 'Learn AI & Tech, Spark Your Career',
+    siteName: 'LearnSpark',
     type: 'website',
   },
   verification:{
