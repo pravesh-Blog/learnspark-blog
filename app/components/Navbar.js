@@ -1,7 +1,9 @@
 'use client'
 import Link from "next/link";
 import { useState } from "react";
-import {Zap} from "lucide-react";
+//import {Zap} from "lucide-react"; / icon ke liye
+import Image from "next/image";
+
 export default function Navbar(){
 
     const[isOpen,setIsOpen]=useState(false);
@@ -20,8 +22,8 @@ export default function Navbar(){
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
 
             <Link href='/' className="font-display text-xl sm:text-2xl font-semibold text-[#1F2421] flex items-center gap-2">
-                <Zap className="w-5 h-5 text-[#B2491A]" fill="currentColor" />
-                LearnSpark
+
+               <Image src='/L2.png' alt='LearnSpark' width={140} height={40} className="w-auto h-10"/>
             </Link>
 
             {/* Desktop Links */}
