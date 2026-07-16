@@ -173,7 +173,6 @@ export default function PostForm(){
 
                     <textarea 
                     rows="3" 
-                    required
                     className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={description}
                     onChange={(e)=>setDescription(e.target.value)}
@@ -192,7 +191,6 @@ export default function PostForm(){
 
                     <textarea 
                     rows="10" 
-                    required
                     className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={content}
                     onChange={(e)=>setContent(e.target.value)}
