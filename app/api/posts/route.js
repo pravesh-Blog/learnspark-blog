@@ -33,8 +33,8 @@ export async function POST(req) {
       );
     }
 
-    const { title, slug, image, category, description, content } = result.data;
-    const post = await Post.create({ title, slug, image, category, description, content });
+    const { title, slug, image, category,status, description, content } = result.data;
+    const post = await Post.create({ title, slug, image, category,status, description, content });
     return Response.json(post, { status: 201 });
 
   } catch (error) {

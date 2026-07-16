@@ -8,4 +8,5 @@ export const postSchema = z.object({
   content: z.string().min(20, 'Content must be at least 20 characters long'),
   image: z.string().optional(),
   category: z.string().optional(),
+  status:z.enum(['draft','published']).optional()
 })

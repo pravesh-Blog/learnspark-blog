@@ -42,9 +42,9 @@ export async function PUT(req,{params}){
     }
 
 
-    const{title,slug,content,description,image,category}=result.data;
+    const{title,slug,content,description,image,category,status}=result.data;
 
-    const post=await Post.findByIdAndUpdate(id,{title,slug,image,category,content,description},{new:true});
+    const post=await Post.findByIdAndUpdate(id,{title,slug,image,category,status,content,description},{new:true});
 
     if(!post){
       return Response.json(

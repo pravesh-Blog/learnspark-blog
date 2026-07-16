@@ -1,12 +1,12 @@
 'use client'
-import { usePosts,useDeletePost } from "@/app/hooks/usePost";
+import { useAllPosts,useDeletePost } from "@/app/hooks/usePost";
 import Link from "next/link";
 import AdminSidebar from "@/app/components/AdminSidebar";
 import PostsTable from "@/app/components/PostsTable";
 
 
 export default function AdminPosts(){
-    const{data:posts=[]}=usePosts();
+    const{data:posts=[]}=useAllPosts();
     const deletePost=useDeletePost();
 
     const handleDelete=async(id)=>{

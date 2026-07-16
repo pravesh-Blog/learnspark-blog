@@ -18,6 +18,7 @@ export default function PostForm(){
     const[imagePreview,setImagePreview]=useState('');
     const[uploading,setUploading]=useState(false);
     const[imageFile,setImageFile]=useState(null);
+    const[status,setStatus]=useState('draft');
 
     // for validation
     const[errors,setErrors]=useState({});
@@ -35,7 +36,7 @@ export default function PostForm(){
       const handleSubmit = async (e) => {
       e.preventDefault();
 
-      const result = postSchema.safeParse({ title, slug, image, category, description, content })
+      const result = postSchema.safeParse({ title, slug, image, category,status,description, content })
 
       if (!result.success) {
         setErrors(result.error.flatten().fieldErrors)
@@ -63,7 +64,7 @@ export default function PostForm(){
           setUploading(false)
         }
 
-        await addPost.mutateAsync({ title, slug, image: imageUrl, category, description, content })
+        await addPost.mutateAsync({ title, slug, image: imageUrl, category,status, description, content })
         router.push('/admin/posts')
 
       } catch (error) {
@@ -153,6 +154,18 @@ export default function PostForm(){
                   <option value="Tutorials">Tutorials</option>
                 </select>
               </div>
+
+
+              <div className="mb-6">
+                  <label className="block text-sm font-semibold mb-2">Status</label>
+                  <select
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                    className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="draft">Draft (Save privately)</option>
+                    <option value="published">Published (Live on blog)</option>
+                  </select>
+                </div>
 
                 
                 <div className="mb-6">

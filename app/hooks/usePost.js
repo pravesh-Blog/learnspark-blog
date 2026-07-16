@@ -8,9 +8,22 @@ export function usePosts(){
         queryKey:['posts'],
         queryFn:async()=>{
             const{data}=await api.get('/api/posts');
-            return data;
+            return data.filter(post=>post.status==='published');
         }
     });
+}
+
+
+//all posts drft+published for admin pannel
+
+export function useAllPosts(){
+    return useQuery({
+        queryKey:['posts','all'],
+        queryFn:async()=>{
+            const {data}=await api.get('/api/posts');
+            return data;
+        }
+    })
 }
 
 // add new data api call by forntend

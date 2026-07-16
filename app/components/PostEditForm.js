@@ -10,6 +10,7 @@ export default function PostEditForm({post}){
    const[slug,setSlug]=useState(post?.slug || '');
    const[image,setImage]=useState(post?.image || '');
    const[category,setCategory]=useState(post?.category || '');
+   const[status,setStatus]=useState(post?.status || 'draft');
    const[description,setDescription]=useState(post?.description ||'');
    const[content,setContent]=useState(post?.content || '');
 
@@ -31,7 +32,7 @@ export default function PostEditForm({post}){
   const handleSubmit = async (e) => {
   e.preventDefault()
 
-  const result = postSchema.safeParse({ title, slug, image, category, description, content })
+  const result = postSchema.safeParse({ title, slug, image, category,status, description, content })
 
   if (!result.success) {
     setErrors(result.error.flatten().fieldErrors)
@@ -59,8 +60,8 @@ export default function PostEditForm({post}){
       setUploading(false)
     }
 
-    await updatePost.mutateAsync({ id: post._id, title, slug, image: imageUrl, category, description, content })
-    router.push('/admin/posts')
+    await updatePost.mutateAsync({ id: post._id, title, slug, image: imageUrl, category,status, description, content })
+    router.push('/admin/posts');
 
   } catch (error) {
     setUploading(false)
@@ -147,6 +148,19 @@ export default function PostEditForm({post}){
                   <option value="Career Tips">Career Tips</option>
                   <option value="Tech">Tech</option>
                   <option value="Tutorials">Tutorials</option>
+                </select>
+              </div>
+
+
+              <div className="mb-6">
+                <label className="block text-sm font-semibold mb-2">Status</label>
+                <select
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="draft">Draft (Save privately)</option>
+                  <option value="published">Published (Live on blog)</option>
                 </select>
               </div>
 
