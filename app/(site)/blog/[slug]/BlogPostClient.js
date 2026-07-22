@@ -60,7 +60,7 @@ export default function BlogPostClient({ params }) {
 
           <div className="h-px bg-[#E3DFD4] mb-10 sm:mb-12" />
 
-          <div className="prose prose-sm sm:prose-base max-w-none prose-p:leading-relaxed prose-headings:mt-10 prose-headings:mb-4">
+          <div className="prose prose-base sm:prose-lg max-w-none prose-p:leading-relaxed prose-headings:mt-10 prose-headings:mb-4">
 
             <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
               {post.content}
