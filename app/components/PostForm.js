@@ -29,7 +29,8 @@ export default function PostForm(){
     //for slug
       const handleAutoSlug=(title)=>{
         setTitle(title);
-        setSlug(title.toLowerCase().replace(/\s+/g,'-'))
+        const cleanSlug=title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+        setSlug(cleanSlug);
       }
   
     // form submit

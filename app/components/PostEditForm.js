@@ -26,7 +26,8 @@ export default function PostEditForm({post}){
 
    const handleAutoSlug=(title)=>{
         setTitle(title);
-        setSlug(title.toLowerCase().replace(/\s+/g,'-'))
+        const cleanSlug=title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+        setSlug(cleanSlug);
       }
 // after submit
   const handleSubmit = async (e) => {

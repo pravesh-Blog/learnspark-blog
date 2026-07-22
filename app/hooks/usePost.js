@@ -89,7 +89,8 @@ export function usePostBySlug(slug){
         queryKey:['post',slug],
         queryFn:async()=>{
             const{data}=await api.get("/api/posts")
-            return data.find(post=>post.slug===slug);
+            let post= data.find(post=>post.slug===slug);
+            return post || null;
         }
     })
 }
