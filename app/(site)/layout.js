@@ -15,7 +15,10 @@ export const metadata = {
     type: 'website',
   },
   verification:{
-    google:'iwqfJZjznxyNv1yBll0zo0qXAc_qy6XAX2OL1rsnd78'
+    google:'iwqfJZjznxyNv1yBll0zo0qXAc_qy6XAX2OL1rsnd78',
+    other:{
+      'msvalidate.01':'104421AB354CBE1D0130E688EE9076C2'
+    }
   }
 }
 
