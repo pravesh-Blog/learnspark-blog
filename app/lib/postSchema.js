@@ -30,7 +30,7 @@ export const postSchema = z.object({
   }
   return true
 }, {
-  message: 'Description is required for published posts',
+  message: 'Description 1 or less then 200 characters',
   path: ['description'],
 }).refine((data) => {
   if (data.status === 'published') {
