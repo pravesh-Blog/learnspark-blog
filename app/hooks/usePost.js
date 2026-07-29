@@ -1,6 +1,7 @@
 'use client'
 import { useQuery,useQueryClient,useMutation } from "@tanstack/react-query";
 import api from "../services/api";
+import Categories from "../(site)/categories/page";
 
 // api axcess on fronted using react-query
 export function usePosts(){
@@ -93,4 +94,21 @@ export function usePostBySlug(slug){
             return post || null;
         }
     })
+}
+
+// releted post same categeoy wise current post chod kar
+
+export function useRelatedPost(category, currentSlug){
+    return useQuery({
+        queryKey:['posts','related', category, currentSlug],
+        queryFn: async()=>{
+            const{data}=await api.get("/api/posts");
+            let filteredData=data.filter((post)=>(
+                post.status==="published" && post.category===category && post.slug !== currentSlug
+            ))
+            return filteredData;
+        },
+        enabled: !!category
+
+        })
 }

@@ -5,6 +5,7 @@ import { usePostBySlug } from '@/app/hooks/usePost'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import RelatedPosts from '@/app/components/RelatedPosts'
 
 function getReadingTime(text = '') {
   const words = text.trim().split(/\s+/).length
@@ -70,7 +71,9 @@ export default function BlogPostClient({ params }) {
 
           <div className="h-px bg-[#E3DFD4] mt-14 mb-8" />
 
-          <Link href="/" className="font-mono text-xs text-[#2C5F4F] inline-flex items-center gap-1 hover:gap-2 transition-all">
+          <RelatedPosts category={post.category} currentSlug={post.slug}/>
+
+          <Link href="/" className="font-mono text-xs text-[#2C5F4F] inline-flex items-center gap-1 hover:gap-2 transition-all mt-4">
             <span aria-hidden="true">←</span> Back to all entries
           </Link>
         </article>
