@@ -149,8 +149,8 @@ export default function PostForm(){
                   className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="General">General</option>
+                  <option value="Education">Education</option>
                   <option value="AI">AI</option>
-                  <option value="Career Tips">Career Tips</option>
                   <option value="Tech">Tech</option>
                   <option value="Tutorials">Tutorials</option>
                 </select>
