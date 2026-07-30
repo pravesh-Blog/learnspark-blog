@@ -8,7 +8,7 @@ export default function RelatedPosts({category,currentSlug}){
     if(posts.length===0)return null
     
     return(
-        <div className=" mt-16 pt-10 border-t border-[#E3DFD4]">
+        <div className=" mt-16">
             <p className="font-mono text-xs text-[#2C5F4F] tracking-[0.2em] mb-6">
                 RELATED ENTRIES
             </p>
@@ -19,7 +19,7 @@ export default function RelatedPosts({category,currentSlug}){
                         <Link
                         key={post._id}
                         href={`/blog/${post.slug}`}
-                        className="block bg-white border border-[#E3DFD4] rounded-sm hover:border-[#2C5F4F] transition-colors p-4 group transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02]" 
+                        className="block bg-white border border-[#E3DFD4] rounded-sm hover:border-[#2C5F4F] p-4 group transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02]"
                         >
 
                          {post.image &&(

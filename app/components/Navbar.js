@@ -23,7 +23,7 @@ export default function Navbar(){
 
             <Link href='/' className="font-display text-xl sm:text-2xl font-semibold text-[#1F2421] flex items-center gap-2">
 
-               <Image src='/L2.png' alt='LearnSpark' width={140} height={40} className="w-auto h-10"/>
+               <Image src='/L2.png' alt='LearnSpark' width={140} height={40} className="w-auto h-10 priority"/>
             </Link>
 
             {/* Desktop Links */}

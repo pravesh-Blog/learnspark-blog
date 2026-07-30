@@ -1,6 +1,7 @@
 'use client'
 import { usePosts } from "@/app/hooks/usePost";
 import PostCard from "@/app/components/PostCard";
+import TypewriterText from "@/app/components/Typewriter";
 
 
 
@@ -16,13 +17,18 @@ export default function Home() {
                TECH & EDUCATION
             </p>
 
-            <h1 className="font-display text-5xl sm:text-5xl font-semibold text-[#1F2421] leading-tight mb-4 md:text-6xl">
-              LearnSpark 🚀
+            <h1 className="font-display text-5xl sm:text-5xl font-semibold text-[#1F2421] leading-tight mb-4 md:text-6xl animate-fade-in-up">
+              LearnSpark <span className="inline-block animate-bounce-slow">🚀</span>
             </h1>
 
-            <p className="text-[#6F7670] text-base sm:text-lg max-w-xl mt-6 leading-relaxed">
+            {/* <p className="text-[#6F7670] text-base sm:text-lg max-w-xl mt-6 leading-relaxed">
                   Learn AI & Tech, Spark Your Career
-            </p>
+            </p> */}
+
+            <TypewriterText 
+             text=" Learn AI & Tech, Spark Your Career"
+             className="text-[#6F7670] text-base sm:text-lg max-w-xl mt-6 leading-relaxed"
+            />
 
          </header>
       
