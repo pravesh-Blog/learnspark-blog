@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import RelatedPosts from '@/app/components/RelatedPosts'
+import ShareButtons from '@/app/components/ShareButtons'
 
 function getReadingTime(text = '') {
   const words = text.trim().split(/\s+/).length
@@ -68,6 +69,11 @@ export default function BlogPostClient({ params }) {
             </ReactMarkdown>
             
           </div>
+
+          <ShareButtons 
+          title={post.title} 
+          url={`https://learnsparkblog.in/blog/${post.slug}`}
+          />
 
           <div className="h-px bg-[#E3DFD4] mt-14 mb-8" />
 
