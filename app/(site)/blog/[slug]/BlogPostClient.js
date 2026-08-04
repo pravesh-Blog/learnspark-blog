@@ -35,7 +35,7 @@ export default function BlogPostClient({ params }) {
 
   return (
     <div className="min-h-screen bg-[#F5F3EE]">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-20">
 
         <Link href="/" className="font-mono text-xs text-[#2C5F4F] inline-flex items-center gap-1 mb-10 sm:mb-14 hover:gap-2 transition-all">
           <span aria-hidden="true">←</span> Back to all entries
