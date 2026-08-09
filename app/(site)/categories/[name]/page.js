@@ -10,14 +10,14 @@ export default function CategoryPosts({params}){
     const{data:posts=[]}=usePosts();
     const filteredPosts=posts.filter((post)=>(post.category ||'General')===decodeName);
     return(
-        <div className=" min-h-screen bg-[#F5F3EE]">
+        <div className="min-h-screen bg-[#F5F3EE] dark:bg-[#1a1a1a]">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 py:-16 sm:py-24">
 
                  <Link href='/categories' className="font-mono text-xs text-[#2C5FAF] inline-flex items-center gap-1 mb-8 hover:gap-2 transition-all">
                        <span aria-hidden="true">←</span>All Categories
                  </Link>
 
-                 <p className="font-mono text-xs text-[#B2491A] tracking-[0.2em] mb-4">
+                 <p className="font-mono text-xs text-[#2C5F4F] dark:text-[#7FB8A0] tracking-[0.2em] mb-4">
                     CATEGORY
                  </p>
 
@@ -30,7 +30,7 @@ export default function CategoryPosts({params}){
                  {
                     filteredPosts.length==0?(
                         <p className="font-display text-sm text-[#6F7670]">
-                            No entries in this category yet.
+                            No Posts in this category yet.
                         </p>
                     ):(
                         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">

@@ -1,8 +1,9 @@
 'use client'
 import Link from "next/link";
 import { useState } from "react";
-//import {Zap} from "lucide-react"; / icon ke liye
+//import {Zap} from "lucide-react"; icon ke liye
 import Image from "next/image";
+import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function Navbar(){
 
@@ -17,13 +18,13 @@ export default function Navbar(){
    
 
     return(
-        <nav className="border-b border-[#E3DFD4] bg-[#F5F3EE]/90 sticky top-0 z-50 backdrop-blur-sm">
+        <nav className="border-b border-[#E3DFD4] bg-[#F5F3EE]/90 sticky top-0 z-50 backdrop-blur-sm dark:bg-[#1A1A1A] dark:border-[#3A3A3A]">
 
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
 
             <Link href='/' className="font-display text-xl sm:text-2xl font-semibold text-[#1F2421] flex items-center gap-2">
 
-               <Image src='/L2.png' alt='LearnSpark' width={140} height={40} className="w-auto h-10 priority"/>
+               <Image src='/L2.png' alt='LearnSpark' width={140} height={40} className="w-auto h-10" priority/>
             </Link>
 
             {/* Desktop Links */}
@@ -32,41 +33,45 @@ export default function Navbar(){
                         <Link
                         key={link.href}
                         href={link.href}
-                        className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium"
+                        className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]"
                         >
                         {link.label}
                         </Link>
                     ))}
+                 <ThemeToggle/>
              </div>
 
              {/* mobile Hamburger Button */}
-
+            <div className="flex items-center gap-2 md:hidden">
+                <ThemeToggle/>
               <button
                onClick={()=>setIsOpen(!isOpen)}
                className="md:hidden flex flex-col gap-1.5 p-2"
                aria-label="Toggle menu"
               >
+                
 
-                <span className={`block w-6 h-0.5 bg-[#1F2421] transition-all ${isOpen?'rotate-45 -translate-y-2':''}`}/>
+                <span className={`block w-6 h-0.5 bg-[#1F2421] dark:bg-[#F5F5F5] transition-all ${isOpen?'rotate-45 -translate-y-2':''}`}/>
 
-                <span className={`block w-6 h-0.5 bg-[#1F2421] transition-all ${isOpen?'opacity-0':''}`}/>
+                <span className={`block w-6 h-0.5 bg-[#1F2421] dark:bg-[#F5F5F5] transition-all ${isOpen?'opacity-0':''}`}/>
 
-                <span className={`block w-6 h-0.5 bg-[#1F2421] transition-all ${isOpen?'-rotate-45 -translate-y-2':''}`}/>
+                <span className={`block w-6 h-0.5 bg-[#1F2421] dark:bg-[#F5F5F5] transition-all ${isOpen?'-rotate-45 -translate-y-2':''}`}/>
 
               </button>
+              </div>
 
           </div>
 
           {/* Mobile Menu */}
           {isOpen &&(
-            <div className="md:hidden border-t border-[#E3DFD4] px-4 sm:px-6 py-4 flex flex-col gap-4 font-mono text-sm">
+            <div className="md:hidden border-t border-[#E3DFD4] px-4 sm:px-6 py-4 flex flex-col gap-4 font-mono text-sm dark:border-[#3A3A3A]">
                 {
                  links.map((link)=>(
                     <Link
                     key={link.href}
                     href={link.href}
                     onClick={()=>setIsOpen(false)}
-                    className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium"
+                    className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]"
                     >
                         {link.label}
                     </Link>

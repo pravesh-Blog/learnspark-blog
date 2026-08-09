@@ -7,31 +7,31 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t border-[#E3DFD4] bg-[#F5F3EE] mt-20">
+    <footer className="border-t border-[#E3DFD4] bg-[#F5F3EE] mt-20 dark:bg-[#1A1A1A] dark:border-[#3A3A3A]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
 
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-6 font-mono text-xs sm:text-sm">
 
-          <Link href="/disclaimer" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors">
+          <Link href="/disclaimer" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
             Disclaimer
           </Link>
 
-          <Link href="/privacy-policy" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors">
+          <Link href="/privacy-policy" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
             Privacy Policy
           </Link>
 
-          <Link href="/about" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors">
+          <Link href="/about" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
             About us
           </Link>
 
-          <Link href="/contact" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors">
+          <Link href="/contact" className="text-[#6F7670] hover:text-[#2C5F4F] transition-colors dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
             Contact us
           </Link>
           
         </div>
 
         <div className="relative flex items-center justify-center">
-          <p className="font-mono text-xs sm:text-sm text-[#6F7670] text-center">
+          <p className="font-mono text-xs sm:text-sm text-[#6F7670] text-center dark:text-[#F5F5F5]">
             Copyright © {new Date().getFullYear()} LearnSpark
           </p>
 

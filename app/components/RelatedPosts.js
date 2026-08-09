@@ -10,7 +10,7 @@ export default function RelatedPosts({category,currentSlug}){
     return(
         <div className=" mt-16">
             <p className="font-mono text-xs text-[#2C5F4F] tracking-[0.2em] mb-6">
-                RELATED ENTRIES
+                RELATED POSTS
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -19,7 +19,7 @@ export default function RelatedPosts({category,currentSlug}){
                         <Link
                         key={post._id}
                         href={`/blog/${post.slug}`}
-                        className="block bg-white border border-[#E3DFD4] rounded-sm hover:border-[#2C5F4F] p-4 group transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02]"
+                        className="block bg-white border border-[#E3DFD4] rounded-sm hover:border-[#2C5F4F] p-4 group transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02] dark:bg-[#222222] dark:border-[#3A3A3A] dark:hover:border-[#7FB8A0]"
                         >
 
                          {post.image &&(
@@ -31,11 +31,11 @@ export default function RelatedPosts({category,currentSlug}){
                                 />   
                             )}
 
-                         <p className="font-mono text-xs text-[#6F7670] mb-2 py-4">
+                         <p className="font-mono text-xs text-[#6F7670] mb-2 py-4 dark:text-[#A8A8A8]">
                             {new Date(post.createdAt).toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"})}
                          </p>   
 
-                         <h3 className="font-display text-lg font-semibold text-[#1F2421]">
+                         <h3 className="font-display text-lg font-semibold text-[#1F2421] dark:text-[#F5F5F5]">
                             {post.title}
                          </h3>
                         </Link>
