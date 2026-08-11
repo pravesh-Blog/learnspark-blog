@@ -26,7 +26,7 @@ export default function RelatedPosts({category,currentSlug}){
                                 <img 
                                 src={post.image}
                                 alt={post.title}
-                                className="w-full object-cover h-auto max-h-40 rounded-sm mb-4"
+                                className="w-full object-cover h-48 rounded-sm mb-4 sm:h-60"
 
                                 />   
                             )}

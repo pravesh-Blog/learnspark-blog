@@ -112,3 +112,14 @@ export function useRelatedPost(category, currentSlug){
 
         })
 }
+
+// View conut badhane ke liye
+
+export function useIncrementView(){
+    return useMutation({
+        mutationFn:async(slug)=>{
+            const {data}=await api.post(`/api/posts/view/${slug}`);
+            return data;
+        }
+    })
+}

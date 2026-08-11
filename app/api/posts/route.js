@@ -6,7 +6,7 @@ import { verifyToken } from "@/app/lib/verifyToken";
 export async function GET() {
   try {
     await connectDB();
-    const posts = await Post.find();
+    const posts = await Post.find().sort({createdAt:-1});
     return Response.json(posts);
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });

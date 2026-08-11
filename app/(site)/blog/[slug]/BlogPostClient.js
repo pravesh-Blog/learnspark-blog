@@ -1,7 +1,7 @@
 'use client'
-import { use } from 'react'
+import { use,useEffect } from 'react'
 import Link from 'next/link'
-import { usePostBySlug } from '@/app/hooks/usePost'
+import { usePostBySlug,useIncrementView } from '@/app/hooks/usePost'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -16,6 +16,14 @@ function getReadingTime(text = '') {
 export default function BlogPostClient({ params }) {
   const { slug } = use(params);
   const { data: post, isLoading } = usePostBySlug(slug);
+  const incrementView=useIncrementView();
+  
+  useEffect(()=>{
+    if(post){
+      incrementView.mutate(slug);
+    }
+  },[post,slug])
+  
 
   const markdownClasses = `
   prose prose-base sm:prose-lg max-w-none
