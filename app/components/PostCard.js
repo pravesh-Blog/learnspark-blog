@@ -19,11 +19,13 @@ export default function PostCard({post,index}){
             <article className="group relative bg-white border border-[#E3DFD4] rounded-sm p-5 sm:p-6 transition-all duration-300 hover:border-[#2C5F4F] hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_#2C5F4F] active:scale-[0.98] active:shadow-sm flex flex-col h-full dark:border-[#3A3A3A] dark:bg-[#222222] dark:hover:border-[#7FB8A0]">
 
                 {post.image &&(
+                 <div className='w-full aspect-video overflow-hidden rounded-sm mb-4'>
                     <img 
                     src={post.image}
                     alt={post.title}
-                    className="w-full object-cover rounded-sm mb-4 h-40"
+                    className="w-full h-full object-cover"
                     />
+                 </div>
                     
                 )}
 

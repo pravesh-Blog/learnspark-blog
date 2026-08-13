@@ -23,12 +23,14 @@ export default function RelatedPosts({category,currentSlug}){
                         >
 
                          {post.image &&(
+                            <div className='w-full aspect-video overflow-hidden rounded-sm mb-4'>
                                 <img 
                                 src={post.image}
                                 alt={post.title}
-                                className="w-full object-cover h-48 rounded-sm mb-4 sm:h-60"
+                                className="w-full object-cover h-full"
 
                                 />   
+                            </div>
                             )}
 
                          <p className="font-mono text-xs text-[#6F7670] mb-2 py-4 dark:text-[#A8A8A8]">

@@ -22,7 +22,7 @@ export default function BlogList() {
         ) : posts.length === 0 ? (
           <p className="font-mono text-sm text-[#6F7670] dark:text-[#B5B5B5]">No posts yet.</p>
         ) : (
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {posts.map((post, index) => (
               <PostCard key={post._id} post={post} index={index} />
             ))}
