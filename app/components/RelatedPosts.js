@@ -9,7 +9,7 @@ export default function RelatedPosts({category,currentSlug}){
     
     return(
         <div className=" mt-16">
-            <p className="font-mono text-xs text-[#2C5F4F] tracking-[0.2em] mb-6">
+            <p className="font-mono text-xs text-[#2C5F4F] tracking-[0.2em] mb-6 dark:text-[#7FB8A0]">
                 RELATED POSTS
             </p>
 

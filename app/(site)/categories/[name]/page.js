@@ -13,7 +13,7 @@ export default function CategoryPosts({params}){
         <div className="min-h-screen bg-[#F5F3EE] dark:bg-[#1a1a1a]">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 py:-16 sm:py-24">
 
-                 <Link href='/categories' className="font-mono text-xs text-[#2C5FAF] inline-flex items-center gap-1 mb-8 hover:gap-2 transition-all">
+                 <Link href='/categories' className="font-mono text-xs inline-flex items-center gap-1 mb-8 hover:gap-2 transition-all dark:text-[#7FB8A0] text-[#2C5F4F]">
                        <span aria-hidden="true">←</span>All Categories
                  </Link>
 
@@ -21,7 +21,7 @@ export default function CategoryPosts({params}){
                     CATEGORY
                  </p>
 
-                 <h1 className="font-display text-3xl sm:text-4xl font-semibold text-[#1F2421] mb-10">
+                 <h1 className="font-display text-3xl sm:text-4xl font-semibold text-[#1F2421] mb-10 dark:text-[#F5F5F5]">
                     {decodeName}
                  </h1>
 
@@ -29,7 +29,7 @@ export default function CategoryPosts({params}){
 
                  {
                     filteredPosts.length==0?(
-                        <p className="font-display text-sm text-[#6F7670]">
+                        <p className="font-display text-sm text-[#6F7670] dark:text-[#B5B5B5]">
                             No Posts in this category yet.
                         </p>
                     ):(
