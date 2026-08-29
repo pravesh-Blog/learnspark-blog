@@ -1,57 +1,75 @@
 import Link from "next/link";
 import api from "../services/api";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-export default function AdminSidebar(){
-    const pathname=usePathname();
-    const router=useRouter();
-    
-    const isActive=(href)=>{
-        if(href==='/admin/posts'){
-        return pathname==='/admin/posts'
-    }
-    return pathname===href || pathname.startsWith(href +'/');
+export default function AdminSidebar() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const isActive = (href) => {
+    if (href === '/admin/posts') {
+      return pathname === '/admin/posts'
     }
 
-    const handleLogout=async()=>{
-        await api.post('/api/admin/logout');
-        router.push('/admin');
-    }
+    return pathname === href || pathname.startsWith(href + '/')
+  }
 
-    return(
-        <div className="w-64 bg-gray-800 text-white p-6 ">
-            <h2 className="text-3xl font-bold mb-10">Admin</h2>
-            <nav className="space-y-3">
+  const handleLogout = async () => {
+    await api.post('/api/admin/logout')
+    router.push('/admin')
+  }
 
-                <Link href="/admin/dashboard" 
-                className={`block p-3 rounded ${isActive('/admin/dashboard')? 'bg-blue-500':'hover:bg-gray-700'}`}
-                >
-                Dashboard
-                </Link>
+  return (
+    <aside className="w-full bg-gray-800 p-4 text-white sm:p-5 md:min-h-screen md:w-64 md:p-6 dark:bg-[#242424] dark:border-r dark:border-[#3A3A3A]">
 
-                <Link href="/admin/posts"
-                className={`block p-3 rounded ${isActive('/admin/posts')? 'bg-blue-500':'hover:bg-gray-700'}`}
-                >
-                Posts
-                </Link>
+      <h2 className="mb-5 text-2xl font-bold sm:mb-7 sm:text-3xl md:mb-10">
+        Admin
+      </h2>
 
-                <Link href="/admin/posts/new"
-                className={`block p-3 rounded ${isActive('/admin/posts/new')? 'bg-blue-500':'hover:bg-gray-700'}`}
-                >
-                New Post
-                </Link>
+      <nav className="flex flex-col gap-2 md:space-y-3">
 
-                {/* logout button */}
-                 <button 
-                 className="block w-full text-left p-3 rounded hover:bg-red-600 transition mt-10"
+        <Link
+          href="/admin/dashboard"
+          className={`block rounded p-3 transition-colors ${
+            isActive('/admin/dashboard')
+              ? 'bg-blue-500'
+              : 'hover:bg-gray-700 dark:hover:bg-[#303030]'
+          }`}
+        >
+          Dashboard
+        </Link>
 
-                 onClick={handleLogout}
-                 >
-                     Logout
-                 </button>
+        <Link
+          href="/admin/posts"
+          className={`block rounded p-3 transition-colors ${
+            isActive('/admin/posts')
+              ? 'bg-blue-500'
+              : 'hover:bg-gray-700 dark:hover:bg-[#303030]'
+          }`}
+        >
+          Posts
+        </Link>
 
-            </nav>
-        </div>
-    );
+        <Link
+          href="/admin/posts/new"
+          className={`block rounded p-3 transition-colors ${
+            isActive('/admin/posts/new')
+              ? 'bg-blue-500'
+              : 'hover:bg-gray-700 dark:hover:bg-[#303030]'
+          }`}
+        >
+          New Post
+        </Link>
+
+        <button
+          onClick={handleLogout}
+          className="mt-5 block w-full rounded p-3 text-left transition-colors hover:bg-red-600 md:mt-10"
+        >
+          Logout
+        </button>
+
+      </nav>
+
+    </aside>
+  )
 }
