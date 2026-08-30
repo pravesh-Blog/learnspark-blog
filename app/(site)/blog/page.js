@@ -4,6 +4,8 @@ import { useSearchParams } from 'next/navigation'
 import { usePosts } from "@/app/hooks/usePost"
 import PostCard from "@/app/components/PostCard"
 
+// all posts popular, latest and all posts here
+
 function BlogListContent() {
   const searchParams = useSearchParams();
   const sortType = searchParams.get('sort');
