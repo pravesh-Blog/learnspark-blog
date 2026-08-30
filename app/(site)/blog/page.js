@@ -1,15 +1,14 @@
 'use client'
-
 import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { usePosts } from "@/app/hooks/usePost"
 import PostCard from "@/app/components/PostCard"
 
 function BlogListContent() {
-  const searchParams = useSearchParams()
-  const sortType = searchParams.get('sort')
+  const searchParams = useSearchParams();
+  const sortType = searchParams.get('sort');
 
-  const { data: posts = [], isLoading } = usePosts()
+  const { data: posts = [], isLoading } = usePosts();
 
   const sortedPosts = [...posts].sort((a, b) => {
     if (sortType === 'popular') {
@@ -20,7 +19,7 @@ function BlogListContent() {
       return new Date(b.createdAt) - new Date(a.createdAt)
     }
 
-    // /blog = All Posts
+    // blog = All Posts
     return 0
   })
 
@@ -28,7 +27,7 @@ function BlogListContent() {
     sortType === 'popular' ? 'Popular Posts': sortType === 'latest'? 'Latest Posts': 'All Posts'
 
   const sectionLabel =
-    sortType === 'popular'? 'MOST READ': sortType === 'latest'? 'LATEST': 'ALL ENTRIES'
+    sortType === 'popular'? 'MOST READ': sortType === 'latest'? 'LATEST': 'ALL POSTS'
 
   return (
     <div className="min-h-screen dark:text-[#F5F5F5] dark:bg-[#1a1a1a]">
@@ -49,13 +48,13 @@ function BlogListContent() {
 
         {isLoading ? (
           <p className="font-mono text-sm text-[#6F7670] dark:text-[#A0A0A0]">
-            Loading entries...
+            Loading Posts...
           </p>
 
         ) : sortedPosts.length === 0 ? (
 
           <p className="font-mono text-sm text-[#6F7670] dark:text-[#A0A0A0]">
-            No entries yet.
+            No Posts yet.
           </p>
 
         ) : (
@@ -86,7 +85,7 @@ export default function BlogList() {
       fallback={
         <div className="min-h-screen dark:bg-[#1a1a1a] px-4 py-10">
           <p className="font-mono text-sm text-[#6F7670] dark:text-[#A0A0A0]">
-            Loading entries...
+            Loading Posts...
           </p>
         </div>
       }
