@@ -5,8 +5,9 @@ import { usePostBySlug,useIncrementView } from '@/app/hooks/usePost'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import RelatedPosts from '@/app/components/RelatedPosts'
-import ShareButtons from '@/app/components/ShareButtons'
+import RelatedPosts from '@/app/components/RelatedPosts';
+import ShareButtons from '@/app/components/ShareButtons';
+import AuthorCard from '@/app/components/AuthorCard';
 
 function getReadingTime(text = '') {
   const words = text.trim().split(/\s+/).length
@@ -125,6 +126,8 @@ export default function BlogPostClient({ params }) {
           title={post.title} 
           url={`https://learnsparkblog.in/blog/${post.slug}`}
           />
+
+          <AuthorCard/>
 
           <div className="h-px bg-[#E3DFD4] mt-14 mb-8 dark:bg-[#3A3A3A]"/>
 
