@@ -39,7 +39,7 @@ export default function AuthorCard() {
           </h2>
 
           <p className="text-sm sm:text-base leading-relaxed text-[#6F7670] dark:text-gray-400 max-w-2xl">
-            Mera naam Pravesh Kumar Sharma hai. Main ek digital blogger hoon aur Tech aur Education se jude topics par likhta hoon. Mera aim latest technology, useful tools aur education se judi information ko simple aur easy language mein readers tak pahunchana hai.
+            My name is Pravesh Kumar Sharma. I’m a digital blogger who loves writing about Technology and Education. I share useful tech updates, digital tools, and educational content in a simple and easy-to-understand way.
           </p>
 
           {/* Social Icons */}
