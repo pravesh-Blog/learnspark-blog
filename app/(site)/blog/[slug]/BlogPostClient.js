@@ -116,7 +116,11 @@ export default function BlogPostClient({ params }) {
 
           <div className={`${markdownClasses} prose-headings:mt-10 prose-headings:mb-4`}>
 
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={{table:({node,...props})=>(
+              <div className="table-scroll">
+                 <table {...props}/>
+              </div>
+            )}}>
               {post.content}
             </ReactMarkdown>
             
