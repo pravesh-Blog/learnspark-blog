@@ -11,9 +11,9 @@ export default function CategoryPosts({params}){
     const filteredPosts=posts.filter((post)=>(post.category ||'General')===decodeName);
     return(
         <div className="min-h-screen bg-[#F5F3EE] dark:bg-[#1a1a1a]">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 py:-16 sm:py-24">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
 
-                 <Link href='/categories' className="font-mono text-xs inline-flex items-center gap-1 mb-8 hover:gap-2 transition-all dark:text-[#7FB8A0] text-[#2C5F4F]">
+                 <Link href='/categories' className="font-mono text-xs inline-flex items-center gap-1 mb-10 hover:gap-2 transition-all dark:text-[#7FB8A0] text-[#2C5F4F] sm:mb-14">
                        <span aria-hidden="true">←</span>All Categories
                  </Link>
 

@@ -1,7 +1,7 @@
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-[#F5F3EE] dark:bg-[#1a1a1a]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 sm:pb-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
 
         <p className="font-mono text-xs text-[#2C5F4F] tracking-[0.2em] mb-4 dark:text-[#7FB8A0]">
           PRIVACY POLICY
@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
 
         <div className="prose prose-sm sm:prose-base max-w-none dark:text-[#B5B5B5]">
           <p>
-            Last updated: June 2026
+            Last updated: Sep 2026
           </p>
 
           <h2>Information We Collect</h2>

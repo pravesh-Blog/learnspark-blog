@@ -1,7 +1,7 @@
 export default function Disclaimer() {
   return (
     <div className="min-h-screen bg-[#F5F3EE] dark:bg-[#1A1A1A]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 sm:pb-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
 
         <p className="font-mono text-xs text-[#2C5F4F] tracking-[0.2em] mb-4 dark:text-[#7FB8A0]">
           DISCLAIMER
