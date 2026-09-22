@@ -11,7 +11,7 @@ export default function Home() {
    return(
       <div className="min-h-screen bg-[#F5F3EE] dark:bg-[#1a1a1a]">
 
-         <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
+         <header className="max-w-5xl mx-auto px-6 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
 
             <p className="font-mono text-xs text-[#2C5F4F] tracking-[0.2em] mb-3 sm:mb-4 dark:text-[#7FB8A0]">
                TECH & EDUCATION
