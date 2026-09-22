@@ -1,22 +1,28 @@
 'use client'
-import { useState,useEffect } from "react";
+
+import { useState, useEffect } from "react";
 
 export default function TypewriterText({ text, className }) {
-  const [displayText, setDisplayText] = useState('')
+  const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
-    let index = 0
-    const interval = setInterval(() => {
-      if (index <= text.length) {
-        setDisplayText(text.slice(0, index))
-        index++
-      } else {
-        clearInterval(interval)
+    let index = 0;
+
+    // Start typing immediately
+    const typeNextCharacter = () => {
+      if (index < text.length) {
+        index++;
+        setDisplayText(text.slice(0, index));
       }
-    }, 40)
+    };
 
-    return () => clearInterval(interval)
-  }, [text])
+    // First character immediately
+    typeNextCharacter();
 
-  return <p className={className}>{displayText}</p>
+    const interval = setInterval(typeNextCharacter, 30);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <p className={className}>{displayText}</p>;
 }
