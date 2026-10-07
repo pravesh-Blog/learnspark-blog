@@ -6,6 +6,7 @@ const postSchema=new mongoose.Schema({
     description:String,
     image:String,
     category:{type:String,default:'General'},
+    subcategory:{type:String,default:''},
     status:{type:String,enum:['draft','published'],default:'draft'},
     views:{type:Number,default:0},
     published:{type:Boolean,default:true},

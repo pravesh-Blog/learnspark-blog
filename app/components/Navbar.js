@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 //import {Zap} from "lucide-react"; icon ke liye
 import Image from "next/image";
+import CategoryMenu from "@/app/components/CategoryMenu";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function Navbar(){
@@ -104,7 +105,7 @@ export default function Navbar(){
 
           {/* Mobile Menu */}
           {isOpen &&(
-            <div className="md:hidden border-t border-[#E3DFD4] px-4 sm:px-6 py-4 flex flex-col gap-4 font-mono text-sm dark:border-[#3A3A3A]">
+            <div className="absolute left-0 right-0 top-full md:hidden border-t border-[#E3DFD4] bg-[#F5F3EE] px-4 sm:px-6 py-4 flex flex-col gap-4 font-mono text-sm shadow-lg dark:bg-[#1A1A1A] dark:border-[#3A3A3A]">
                 
                 <Link href="/" onClick={() => setIsOpen(false)} className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
                     Home
@@ -124,9 +125,8 @@ export default function Navbar(){
                     ))}
                 </div>
 
-                <Link href="/categories" onClick={() => setIsOpen(false)} className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
-                    Categories
-                </Link>
+                <CategoryMenu onClose={()=>setIsOpen(false)}/>
+                    
                 <Link href="/about" onClick={() => setIsOpen(false)} className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
                     About
                 </Link>

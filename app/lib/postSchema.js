@@ -22,6 +22,7 @@ export const postSchema = z.object({
   content: z.string().optional(),
   image: z.string().optional(),
   category: z.string().optional(),
+  subcategory:z.string().optional(),
   status: z.enum(['draft', 'published']).optional(),
 }).refine((data) => {
   // Agar published hai, tabhi strict validation

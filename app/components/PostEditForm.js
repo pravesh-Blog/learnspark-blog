@@ -2,6 +2,7 @@
 import { useUpdatePost} from "@/app/hooks/usePost";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { categories } from "@/app/data/categories";
 //for validation with zod
 import { postSchema } from "@/app/lib/postSchema";
 
@@ -10,6 +11,7 @@ export default function PostEditForm({post}){
    const[slug,setSlug]=useState(post?.slug || '');
    const[image,setImage]=useState(post?.image || '');
    const[category,setCategory]=useState(post?.category || '');
+   const[subcategory,setSubcategory]=useState(post?.subcategory || '');
    const[status,setStatus]=useState(post?.status || 'draft');
    const[description,setDescription]=useState(post?.description ||'');
    const[content,setContent]=useState(post?.content || '');
@@ -33,7 +35,7 @@ export default function PostEditForm({post}){
   const handleSubmit = async (e) => {
   e.preventDefault()
 
-  const result = postSchema.safeParse({ title, slug, image, category,status, description, content })
+  const result = postSchema.safeParse({ title, slug, image, category,subcategory,status, description, content })
 
   if (!result.success) {
     setErrors(result.error.flatten().fieldErrors)
@@ -61,7 +63,7 @@ export default function PostEditForm({post}){
       setUploading(false)
     }
 
-    await updatePost.mutateAsync({ id: post._id, title, slug, image: imageUrl, category,status, description, content })
+    await updatePost.mutateAsync({ id: post._id, title, slug, image: imageUrl, category,subcategory,status, description, content })
     router.push('/admin/posts');
 
   } catch (error) {
@@ -139,18 +141,67 @@ export default function PostEditForm({post}){
 
                 <div className="mb-6">
                 <label className="block text-sm font-semibold mb-2">Category</label>
-                <select
+                 <select
                   value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="General">General</option>
-                  <option value="Education">Education</option>
-                  <option value="AI">AI</option>
-                  <option value="Tech">Tech</option>
-                  <option value="Tutorials">Tutorials</option>
+                  onChange={(e)=>{
+                    setCategory(e.target.value);
+                    setSubcategory("");
+                  }}
+
+                   className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 >
+
+                <option value="General">
+                    General
+                </option>
+
+                {
+                  categories.map((item)=>(
+                      <option
+                       key={item.name}
+                       value={item.name}
+                      >
+                         {item.name}
+                      </option>
+                  ))
+                }
+
                 </select>
               </div>
+
+              {
+                category !=="General" && (
+                  <div className="mb-6">
+                    <label className="block text-sm font-semibold mb-2">
+                      Subcategory
+                    </label>
+
+                    <select 
+                    value={subcategory}
+                    onChange={
+                      (e)=>setSubcategory(e.target.value)
+                    }
+                    className="w-full border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                     <option value="">
+                       Select Subcategory
+                     </option>
+
+                     {
+                      categories.find((item)=>item.name===category)?.subcategories.map((item)=>(
+                          <option key={item} value={item}>
+                            {item}
+                          </option>
+                      ))
+                     }
+
+                    </select>
+
+
+                  </div>
+                )
+              }
+
 
 
               <div className="mb-6">

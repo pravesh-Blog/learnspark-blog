@@ -1,4 +1,4 @@
-import CategoryGrid from "@/app/components/CategoryGrid";
+import CategoryList from "@/app/components/CategoryList";
 export default function Categories(){
-    return <CategoryGrid/>
+    return <CategoryList/>
 }
