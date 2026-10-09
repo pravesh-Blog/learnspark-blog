@@ -17,6 +17,8 @@
                 'Cybersecurity',
                 'Programming & Coding',
                 'Web Development',
+                'Cloud Computing',
+                'Career & Jobs',
                 'Gadgets & Devices',
                 'Tech Tips',
             ],
