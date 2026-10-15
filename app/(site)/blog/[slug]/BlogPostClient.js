@@ -114,13 +114,28 @@ export default function BlogPostClient({ params }) {
 
           <div className="h-px bg-[#E3DFD4] mb-10 sm:mb-12 dark:bg-[#3A3A3A]" />
 
-          <div className={`${markdownClasses} prose-headings:mt-10 prose-headings:mb-4`}>
+          <div className={`${markdownClasses} prose-headings:mt-10 prose-headings:mb-4 [&_.contains-task-list]:list-none
+          [&_.task-list-item]:list-none`}>
 
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={{table:({node,...props})=>(
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} 
+            components={{
+            input: ({ node, ...props }) => (
+              <input
+                {...props}
+                type='checkbox'
+                disabled={false}
+                className="mr-2 accent-[#2C5F4F] cursor-pointer dark:accent-[#7FB8A0]"
+              />
+            ),
+            li: ({ node, ...props }) => (
+              <li {...props} />
+            ),
+            table: ({ node, ...props }) => (
               <div className="table-scroll">
-                 <table {...props}/>
+                <table {...props} />
               </div>
-            )}}>
+            ),
+          }}>
               {post.content}
             </ReactMarkdown>
             
