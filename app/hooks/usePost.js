@@ -1,7 +1,6 @@
 'use client'
 import { useQuery,useQueryClient,useMutation } from "@tanstack/react-query";
 import api from "../services/api";
-import Categories from "../(site)/categories/page";
 
 // api axcess on fronted using react-query
 export function usePosts(){

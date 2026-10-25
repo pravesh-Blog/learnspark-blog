@@ -3,13 +3,16 @@ import Link from "next/link";
 import { useState } from "react";
 //import {Zap} from "lucide-react"; icon ke liye
 import Image from "next/image";
+import { Search } from "lucide-react";
 import CategoryMenu from "@/app/components/CategoryMenu";
 import ThemeToggle from "@/app/components/ThemeToggle";
+import SearchPop from "@/app/components/SearchPop";
 
 export default function Navbar(){
 
     const[isOpen,setIsOpen]=useState(false);
     const[blogDropdownOpen,setblogDropdownOpen]=useState(false);
+    const[searchOpen,setSearchOpen]=useState(false);
     
     const links=[
         {href:'/',label:'Home'},
@@ -79,6 +82,15 @@ export default function Navbar(){
                  <Link href="/about" className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors font-medium dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]">
                    About
                  </Link>
+
+                   <button
+                        type="button"
+                        onClick={() => setSearchOpen(true)}
+                        aria-label="Open search"
+                        className="text-[#1F2421] hover:text-[#2C5F4F] transition-colors dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]"
+                        >
+                        <Search size={20} />
+                    </button>
                                       
                  <ThemeToggle/>
              </div>
@@ -86,6 +98,17 @@ export default function Navbar(){
              {/* mobile Hamburger Button */}
             <div className="flex items-center gap-2 md:hidden">
                 <ThemeToggle/>
+              {/* search icon*/}    
+
+               <button
+                    type="button"
+                    onClick={() => setSearchOpen(true)}
+                    aria-label="Open search"
+                    className="p-2 text-[#1F2421] hover:text-[#2C5F4F] transition-colors dark:text-[#F5F5F5] dark:hover:text-[#7FB8A0]"
+                    >
+                    <Search size={20} />
+                </button>
+
               <button
                onClick={()=>setIsOpen(!isOpen)}
                className="md:hidden flex flex-col gap-1.5 p-2"
@@ -132,6 +155,11 @@ export default function Navbar(){
                 </Link>
             </div>
           )}
+
+        <SearchPop
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+        />
             
         </nav>
     );
