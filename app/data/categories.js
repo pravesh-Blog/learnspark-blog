@@ -20,7 +20,7 @@
                 'Cloud Computing',
                 'Career & Jobs',
                 'Gadgets & Devices',
-                'Tech Tips',
+                'Internet & Networking',
             ],
         },
         {
