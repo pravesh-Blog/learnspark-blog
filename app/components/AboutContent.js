@@ -12,28 +12,88 @@ export default function AboutContent() {
         </h1>
 
         <div className="prose prose-sm sm:prose-base max-w-none dark:text-[#B5B5B5]">
+
           <p>
-            Welcome to our blog — a platform dedicated to <b>Technology, Education, AI Tools</b> aur <b>Career Growth</b> se judi useful aur practical information share karne ke liye.
-          </p>
-          <p>
-            Hamara goal hai complex technology aur learning topics ko <b>simple, clear aur easy-to-understand language</b> mein explain karna, taaki students, learners aur technology mein interest rakhne wale users bina confusion ke useful information samajh saken.
+            Welcome to LearnSpark! Ye ek Tech aur Education
+            blog hai, jahan main technology, AI tools,
+            learning resources aur career growth se judi
+            useful information share karta hoon.
           </p>
 
           <p>
-             Yahan aapko <b>AI tools, latest technology, learning resources, educational guides, career tips</b> aur skill development se related practical content milega. Hamari koshish hoti hai ki har article informative hone ke saath-saath real-life learning aur career growth mein bhi useful ho.
+            LearnSpark shuru karne ka mera main purpose hai
+            technology aur education se jude topics ko
+            simple aur easy-to-understand language mein
+            explain karna. Kai baar naye tools aur technical
+            concepts beginners ko confusing lagte hain.
+            Main koshish karta hoon ki unhe step-by-step
+            aur practical examples ke saath samjhaya ja sake.
+          </p>
+
+          <h2>What You'll Find on LearnSpark</h2>
+
+          <p>
+            LearnSpark par aapko alag-alag topics par
+            informative aur practical guides milengi:
+          </p>
+
+          <ul>
+            <li>
+              <b>AI Tools:</b> Useful AI tools, unke features
+              aur unhe use karne ke practical tareeke.
+            </li>
+            <li>
+              <b>Technology:</b> Latest technology,
+              digital tools aur tech-related guides.
+            </li>
+            <li>
+              <b>Education:</b> Learning resources,
+              educational platforms aur study guides.
+            </li>
+            <li>
+              <b>Career Growth:</b> Skills development,
+              career guidance aur useful online resources.
+            </li>
+          </ul>
+
+          <h2>Our Approach</h2>
+
+          <p>
+            Hamari koshish rehti hai ki articles sirf
+            information dene tak limited na hon, balki
+            readers ko kisi topic ko samajhne aur use
+            practically apply karne mein bhi help karein.
           </p>
 
           <p>
-            Hum maante hain ki technology aur education ko samajhna difficult nahi hona chahiye. Isi soch ke saath hum aise content provide karte hain jo aapko <b>nayi skills seekhne, better tools 
-            discover karne aur apne career goals ki taraf aage badhne </b>mein help kare.
+            Hum content ko clear language, useful examples
+            aur relevant information ke saath present karne
+            par focus karte hain. Technology aur online
+            platforms time ke saath change hote rehte hain,
+            isliye zaroorat ke according information
+            update karne ki bhi koshish rehti hai.
+          </p>
+
+          <h2>Our Vision</h2>
+
+          <p>
+            Mera vision hai ki LearnSpark ek aisa useful
+            platform bane jahan students, beginners aur
+            technology mein interest rakhne wale readers
+            naye tools explore kar saken, useful skills
+            seekh saken aur apne career goals ki taraf
+            confidently aage badh saken.
           </p>
 
           <p>
-            <b>Learn, Explore &amp; Grow</b> — isi vision ke saath hum technology aur education ki duniya ki useful information aap tak simple aur practical way mein pahunchane ki koshish karte hain.
+            <b>Learn, Explore &amp; Grow</b> — isi soch ke
+            saath LearnSpark par technology aur education
+            se judi useful information share karne ki
+            journey jaari hai.
           </p>
+
         </div>
-
       </div>
     </div>
-  )
+  );
 }
