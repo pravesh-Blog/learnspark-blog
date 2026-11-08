@@ -1,74 +1,96 @@
-import BlogPostClient from './BlogPostClient'
-import { connectDB } from '@/app/lib/db'
-import { Post } from '@/app/models/post'
-import { cache } from 'react'
+import { cache } from "react";
+import { connectDB } from "@/app/lib/db";
+import { Post } from "@/app/models/post";
+import { notFound } from "next/navigation";
+import BlogPostClient from "./BlogPostClient";
 
-const getPost=cache(async(slug)=> {
+export const dynamic = "force-dynamic";
+
+// Database se published article fetch karna
+const getPost = cache(async (slug) => {
   await connectDB();
-  return await Post.findOne({slug})
-})
 
+  return Post.findOne({
+    slug,
+    status: "published",
+  }).lean();
+});
+
+// Har article ke liye dynamic SEO metadata
 export async function generateMetadata({ params }) {
-  const { slug } = await params
-  
-  const post=await getPost(slug);
+  const { slug } = await params;
+  const postData = await getPost(slug);
 
-  if (!post) {
-    return { title: 'Post Not Found' }
+  if (!postData) {
+    return {
+      title: "Post Not Found",
+    };
   }
+
+  const description =
+    postData.description ||
+    "LearnSpark par Tech, AI aur Education se judi useful guides padhein.";
+
+  const siteUrl = (
+  process.env.NEXT_PUBLIC_API_BASE_URL || "https://learnsparkblog.in"
+).replace(/\/$/, "");
+
+  const canonicalUrl = `${siteUrl}/blog/${postData.slug}`;
+
+  const image = postData.image
+    ? [{ url: postData.image }]
+    : [];
 
   return {
-    title: post.title,
-    description: post.description,
-    alternates:{
-      canonical:`${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/${post.slug}`
+    title: postData.title,
+    description,
+
+    alternates: {
+      canonical: canonicalUrl,
     },
+
     openGraph: {
-      title: post.title,
-      description: post.description,
-      siteName: 'LearnSpark',
-      images: post.image ? [{ url: post.image }] : [],
-      type: 'article',
+      title: postData.title,
+      description,
+      url: canonicalUrl,
+      siteName: "LearnSpark",
+      type: "article",
+      publishedTime: postData.createdAt
+        ? new Date(postData.createdAt).toISOString()
+        : undefined,
+      images: image,
     },
-  }
+
+    twitter: {
+      card: "summary_large_image",
+      title: postData.title,
+      description,
+      images: image,
+    },
+  };
 }
 
-export default async function BlogPost({ params }) {
-  const { slug } = await params
-  const post=await getPost(slug);
+// Article page
+export default async function BlogPostPage({ params }) {
+  const { slug } = await params;
+  const postData = await getPost(slug);
 
-  if (!post) {
-    return <BlogPostClient params={params} />
+  if (!postData) {
+    notFound();
   }
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.description,
-    image: post.image ? [post.image] : [],
-    datePublished: post.createdAt?.toISOString(),
-    dateModified: post.updatedAt?.toISOString(),
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/${post.slug}`,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'LearnSpark',
-    },
-  }
+  // MongoDB data ko serializable object banana
+  const post = {
+    title: postData.title,
+    slug: postData.slug,
+    content: postData.content,
+    description: postData.description,
+    image: postData.image,
+    category: postData.category,
+    createdAt: postData.createdAt
+      ? new Date(postData.createdAt).toISOString()
+      : null,
+  };
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
-        }}
-      />
-
-      <BlogPostClient params={params}/>
-    </>
-  )
+  return <BlogPostClient post={post} />;
 }

@@ -1,7 +1,7 @@
 'use client'
-import { use,useEffect } from 'react'
+import {useEffect } from 'react'
 import Link from 'next/link'
-import { usePostBySlug,useIncrementView } from '@/app/hooks/usePost'
+import {useIncrementView } from '@/app/hooks/usePost'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -14,16 +14,14 @@ function getReadingTime(text = '') {
   return Math.max(1, Math.ceil(words / 200))
 }
 
-export default function BlogPostClient({ params }) {
-  const { slug } = use(params);
-  const { data: post, isLoading } = usePostBySlug(slug);
+export default function BlogPostClient({post}) {
   const incrementView=useIncrementView();
   
-  useEffect(()=>{
-    if(post){
-      incrementView.mutate(slug);
-    }
-  },[post,slug])
+  useEffect(() => {
+  if (post?.slug) {
+    incrementView.mutate(post.slug);
+  }
+}, [post?.slug]);
   
 
   const markdownClasses = `
@@ -67,23 +65,6 @@ export default function BlogPostClient({ params }) {
   prose-hr:border-[#E3DFD4]
   dark:prose-hr:border-[#3A3A3A]
 `
-  
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#F5F3EE] flex items-center justify-center dark:bg-[#1A1A1A]">
-        <p className="font-mono text-sm text-[#6F7670] dark:text-[#B5B5B5]">Loading post...</p>
-      </div>
-    )
-  }
-
-  if (!post) {
-    return (
-      <div className="min-h-screen bg-[#F5F3EE] flex items-center justify-center dark:bg-[#1A1A1A]">
-        <p className="font-mono text-sm text-[#6F7670] dark:text-[#B5B5B5]">Post not found.</p> 
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen bg-[#F5F3EE] dark:bg-[#1A1A1A]">
