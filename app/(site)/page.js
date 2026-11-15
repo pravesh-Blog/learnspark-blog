@@ -4,6 +4,7 @@ import PostCard from "@/app/components/PostCard";
 import TypewriterText from "@/app/components/Typewriter";
 
 
+export const dynamic="force-dynamic";
 
 export default async function Home(){
    await connectDB();
