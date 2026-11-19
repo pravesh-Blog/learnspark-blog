@@ -21,6 +21,7 @@
                 'Career & Jobs',
                 'Gadgets & Devices',
                 'Internet & Networking',
+                'Google Services & Tips'
             ],
         },
         {
